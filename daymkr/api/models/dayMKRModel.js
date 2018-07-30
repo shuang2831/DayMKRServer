@@ -11,7 +11,7 @@ var UserSchema = new Schema({
     type: String,
     required: "Please give a valid FB ID"
   },
-  Created_date: {
+  update_date: {
     type: Date,
     default: Date.now
   },
@@ -24,17 +24,26 @@ var UserSchema = new Schema({
     ],
     default: ["pending"]
   },
+  streak: {
+    type: Number,
+    default: 0,
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  },
   messages: [
     {
       message: String,
-      username: String,
-      imageLocation: String,
-      date: {
-        type: Date,
-        default: Date.now
-      }
+      givenName: String,
+      imagePath: String,
+      Date: Date,
     }
-  ]
+  ],
+  totalDaysMade: {
+    type: Number,
+    default: 0,
+  }
 });
 
 module.exports = mongoose.model("Users", UserSchema);

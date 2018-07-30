@@ -3,10 +3,13 @@ var express = require("express"),
   port = process.env.PORT || 3000,
   mongoose = require("mongoose"),
   User = require("./api/models/dayMKRModel"), //created model loading here
+  Daily = require("./api/models/dailyModel"), //created model loading here
   bodyParser = require("body-parser");
 
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
+// mongodb://localhost/27017
+// mongodb+srv://shuang2831:raddeeAtlus7!@daymkrcluster0-1sjio.gcp.mongodb.net/test?retryWrites=true
 mongoose.connect("mongodb://localhost/27017");
 
 app.use(bodyParser.urlencoded({ extended: true }));
